@@ -9,6 +9,8 @@ class Movie < ApplicationRecord
   RATINGS = %w(G PG PG-13 R NC-17)
   validates :rating, inclusion: { in: RATINGS }
 
+  has_many :reviews, dependent: :destroy
+
 	def flop?
     total_gross.blank? || total_gross < 225000000
 	end
