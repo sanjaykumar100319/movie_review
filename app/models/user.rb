@@ -4,5 +4,6 @@ class User < ApplicationRecord
   validates :email, format: { with: /\S+@\S+/ },
             uniqueness: { case_sensitive: false }
   has_many :reviews, dependent: :destroy
-
+  has_many :favorites, dependent: :destroy
+  
 end
