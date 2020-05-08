@@ -5,5 +5,6 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_movies, through: :favorites, source: :movie
   
 end
